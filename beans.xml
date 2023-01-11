@@ -3,10 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id='hello' class='kr.co.softcampus.beans.HelloWorldEn'/>
-    <bean id='hello2' class='kr.co.softcampus.beans.HelloWorldKo'/>
-
     <!--IoC-->
-    <bean id="t1" class="kr.co.softcampus.beans.TestBean"/>
-
+    <bean id="t2" class="kr.co.softcampus.beans.TestBean"/>
 </beans>
