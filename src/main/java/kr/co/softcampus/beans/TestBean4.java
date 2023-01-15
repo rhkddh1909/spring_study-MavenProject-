@@ -1,0 +1,14 @@
+package kr.co.softcampus.beans;
+
+public class TestBean4 {
+    public TestBean4(){
+        System.out.println("TestBean4의 생성자");
+    }
+
+    public void default_init(){
+        System.out.println("TestBean4의 default_init");
+    }
+    public void default_destroy(){
+        System.out.println("TestBean4의 default_destroy");
+    }
+}

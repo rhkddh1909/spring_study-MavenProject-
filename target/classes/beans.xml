@@ -2,11 +2,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id='hello' class='kr.co.softcampus.beans.HelloWorldEn'/>
-    <bean id='hello2' class='kr.co.softcampus.beans.HelloWorldKo'/>
+                           http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="default_init" default-destroy-method="default_destroy">
 
-    <!--IoC-->
+    <!--<bean id='hello' class='kr.co.softcampus.beans.HelloWorldEn'/>
+    <bean id='hello2' class='kr.co.softcampus.beans.HelloWorldKo'/>-->
+
+    <!--&lt;!&ndash;IoC&ndash;&gt;
     <bean id="t1" class="kr.co.softcampus.beans.TestBean"/>
 
+    &lt;!&ndash; bean생성하기 &ndash;&gt;
+    &lt;!&ndash; xml을 로딩할 때 자동으로 객체가 생성된다 &ndash;&gt;
+    <bean class="kr.co.softcampus.beans.TestCreateBean"/>
+
+    &lt;!&ndash; xml을 로딩할 때 자동으로 객체가 생성된다 &ndash;&gt;
+    &lt;!&ndash; id속성에 이름을 부여하면 getBean 메서드를 통해 주소값을 받아 사용 가능&ndash;&gt;
+    &lt;!&ndash; 한번 생성된 객체는 다시 생성되지 않는다(singleton)&ndash;&gt;
+    <bean id ="test1" class="kr.co.softcampus.beans.TestCreateBean" />
+
+    &lt;!&ndash; lazn-init : true - xml을 로딩할 때 객체가 생성되지 않는다(생략하면 false) &ndash;&gt;
+    &lt;!&ndash; getBean 메서드를 호출할 때 객체가 생성되며 singleton이기 때문에 객체는 하나만 생성 &ndash;&gt;
+    <bean id="test2" class="kr.co.softcampus.beans.TestCreateBean" lazy-init="true"/>
+
+    &lt;!&ndash; scope : prototype - xml을 로딩할 때 객체가 생성되지 않는다. &ndash;&gt;
+    &lt;!&ndash; getBean 메서드를 호출할 때 마다 새로운 객체를 생성한다. &ndash;&gt;
+    <bean id="test3" class="kr.co.softcampus.beans.TestCreateBean" scope="prototype"/>-->
+
+    <!-- 객체가 생성될 때 생성자가 호출된 이후 init-method에 설정한 메서드가 자동으로 호출되고 IoC 컨테이너의 close 메서드를 호출하면 객체가 소멸되며 destroy-method에 설정한 메서드가 자동 호출 -->
+    <bean id="t1" class="kr.co.softcampus.beans.TestBean1" lazy-init="true" init-method="bean1_inti" destroy-method="bean1_destroy"/>
+    <!-- init-method와 destroy-method가 설정되어 있지 않다면 default-init-method와 default-destroy-method에 설정되어 있는 메서드를 호출 -->
+    <bean id="t2" class="kr.co.softcampus.beans.TestBean2" lazy-init="true"/>
+    <!-- 만약 init-metho, destroy-methoddhk default-init-method,default-destroy-method에 등록되어있는 메서드가 모두 있을 경우 init-method, destroy-method를 호출 -->
+    <bean id="t3" class="kr.co.softcampus.beans.TestBean3" lazy-init="true" init-method="bean3_inti" destroy-method="bean3_destroy"/>
+    <bean id="t4" class="kr.co.softcampus.beans.TestBean4" lazy-init="true"/>
 </beans>
