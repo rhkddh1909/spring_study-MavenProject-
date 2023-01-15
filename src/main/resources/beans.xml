@@ -9,4 +9,20 @@
     <!--IoC-->
     <bean id="t1" class="kr.co.softcampus.beans.TestBean"/>
 
+    <!-- bean생성하기 -->
+    <!-- xml을 로딩할 때 자동으로 객체가 생성된다 -->
+    <bean class="kr.co.softcampus.beans.TestCreateBean"/>
+
+    <!-- xml을 로딩할 때 자동으로 객체가 생성된다 -->
+    <!-- id속성에 이름을 부여하면 getBean 메서드를 통해 주소값을 받아 사용 가능-->
+    <!-- 한번 생성된 객체는 다시 생성되지 않는다(singleton)-->
+    <bean id ="test1" class="kr.co.softcampus.beans.TestCreateBean" />
+
+    <!-- lazn-init : true - xml을 로딩할 때 객체가 생성되지 않는다(생략하면 false) -->
+    <!-- getBean 메서드를 호출할 때 객체가 생성되며 singleton이기 때문에 객체는 하나만 생성 -->
+    <bean id="test2" class="kr.co.softcampus.beans.TestCreateBean" lazy-init="true"/>
+
+    <!-- scope : prototype - xml을 로딩할 때 객체가 생성되지 않는다. -->
+    <!-- getBean 메서드를 호출할 때 마다 새로운 객체를 생성한다. -->
+    <bean id="test3" class="kr.co.softcampus.beans.TestCreateBean" scope="prototype"/>
 </beans>
