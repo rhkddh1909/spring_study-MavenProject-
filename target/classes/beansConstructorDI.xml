@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="obj1" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true"/>
+    <bean id="obj2" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value='100' type="int"/>
+    </bean>
+
+    <bean id="obj3" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value='11.11' type="double"/>
+    </bean>
+
+    <bean id="obj4" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value="String"/>
+    </bean>
+
+    <bean id="obj5" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value='100' type="int"/>
+        <constructor-arg value='11.11' type="double"/>
+        <constructor-arg value="String" type="java.lang.String"/>
+    </bean>
+
+    <bean id="obj6" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value='11.11' type="double"/>
+        <constructor-arg value='100' type="int"/>
+        <constructor-arg value="String" type="java.lang.String"/>
+    </bean>
+
+    <bean id="obj7" class="kr.co.softcampus.beans.TestBeanConstructorDI" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg value='11.11' type="double" index="1"/>
+        <constructor-arg value='100' type="int" index="0"/>
+        <constructor-arg value="String" type="java.lang.String" index="2"/>
+    </bean>
+
+    <bean id="obj8" class="kr.co.softcampus.beans.TestBeanConstructorDI2" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg>
+            <bean class="kr.co.softcampus.beans.DataBean"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="kr.co.softcampus.beans.DataBean"/>
+        </constructor-arg>
+    </bean>
+
+    <!--  주입할 때마다 새로운 객체 생성  -->
+    <bean id="data_bean" class="kr.co.softcampus.beans.DataBean" scope="prototype"/>
+
+    <bean id="obj9" class="kr.co.softcampus.beans.TestBeanConstructorDI2" lazy-init="true">
+        <!-- 주입 -->
+        <constructor-arg ref="data_bean"/>
+        <constructor-arg ref="data_bean"/>
+    </bean>
+
+</beans>
