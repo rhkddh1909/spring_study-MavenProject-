@@ -32,7 +32,8 @@
     <bean id="t1" class="kr.co.softcampus.beans.TestBean1" lazy-init="true" init-method="bean1_inti" destroy-method="bean1_destroy"/>
     <!-- init-method와 destroy-method가 설정되어 있지 않다면 default-init-method와 default-destroy-method에 설정되어 있는 메서드를 호출 -->
     <bean id="t2" class="kr.co.softcampus.beans.TestBean2" lazy-init="true"/>
-    <!-- 만약 init-metho, destroy-methoddhk default-init-method,default-destroy-method에 등록되어있는 메서드가 모두 있을 경우 init-method, destroy-method를 호출 -->
+    <!-- 만약 init-metho, destroy-method와 default-init-method,default-destroy-method에 등록되어있는 메서드가 모두 있을 경우 init-method, destroy-method를 호출 -->
     <bean id="t3" class="kr.co.softcampus.beans.TestBean3" lazy-init="true" init-method="bean3_inti" destroy-method="bean3_destroy"/>
+    <!-- init-metho, destroy-methoddhk default-init-method와 default-destroy-method가 설정되어 있을 때 정의되어 있지 않으면 오류 -->
     <bean id="t4" class="kr.co.softcampus.beans.TestBean4" lazy-init="true"/>
 </beans>
